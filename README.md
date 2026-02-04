@@ -1,206 +1,122 @@
-## 📊Amazon Sales Data Analysis (EDA Project)
-# 📌Project Overview
+# Amazon Sales Data Analysis 📦📊
 
-This project performs Exploratory Data Analysis (EDA) on an Amazon sales dataset using Python.
-The goal is to analyze sales performance, customer behavior, product performance, pricing strategy,
-and revenue trends using statistical analysis and visualizations.
+## 📌 Project Overview
+This project performs **exploratory data analysis (EDA)** on an Amazon sales dataset to understand sales performance, customer behavior, pricing patterns, and revenue trends across products, regions, and time.
 
-The dataset contains 50,000 sales transactions across multiple product categories, regions, and payment methods.
-
-## Dataset Description
-
-The dataset contains the following features:
-
-Column Name	Description
-order_id	Unique order identifier
-order_date	Date of order
-product_id	Unique product identifier
-product_category	Category of product
-price	Original product price
-discount_percent	Discount applied
-quantity_sold	Units sold
-customer_region	Customer location
-payment_method	Payment type used
-rating	Product rating
-review_count	Number of reviews
-discounted_price	Price after discount
-total_revenue	Revenue generated
-🛠️ Tools & Libraries Used
-
-Python
-
-Pandas
-
-NumPy
-
-Matplotlib
-
-Seaborn
-
-Jupyter Notebook
-
-🔎 Data Cleaning & Preprocessing
-✔ Data Type Conversion
-
-Converted order_date from object to datetime format.
-
-✔ Data Validation
-
-Verified dataset contains no missing values.
-
-Checked for duplicate records.
-
-✔ Pricing Validation
-
-Verified discounted prices using formula:
-
-price * (1 - discount_percent / 100)
-
-✔ Feature Engineering
-
-## ⚙ Feature Engineering
-
-Created new analytical columns:
-
-- `year`
-- `month`
-- `month_name`
-- `week`
-- `discount_group`
-- `price_group`
-- `review_group`
+Python was used for **data cleaning, transformation, feature engineering, and visualization** to derive meaningful business insights from raw transactional data.
 
 ---
 
-## 📊 Exploratory Data Analysis
+## 🗂 Dataset Description
+- **File Name:** `amazon_sales_dataset.csv`
+- **Total Records:** 50,000
+- **Total Columns:** 13 (initial)
+
+### Key Columns
+- Order details: `order_id`, `order_date`, `product_id`
+- Product details: `product_category`, `price`, `discount_percent`
+- Sales metrics: `quantity_sold`, `discounted_price`, `total_revenue`
+- Customer attributes: `customer_region`, `payment_method`
+- Feedback metrics: `rating`, `review_count`
 
 ---
 
-### 🛍 Revenue Analysis
-
-#### Revenue by Product Category
-- Revenue contribution is evenly distributed across categories.
-- Home & Kitchen shows slightly higher average revenue.
-
-#### Revenue by Region
-- Sales performance is consistent across all regions.
-
-#### Revenue by Payment Method
-- Wallet and UPI payments generated slightly higher revenue.
-- All payment methods contribute almost equally.
+## 🧰 Tools & Libraries
+- **Python**
+- **Pandas, NumPy**
+- **Matplotlib, Seaborn**
+- **Jupyter Notebook**
 
 ---
 
-### 📦 Product Sales Analysis
+## 🧹 Data Cleaning & Preparation
+The following preprocessing steps were performed:
 
-#### Products Sold by Category
-- Beauty category recorded highest product sales.
-- Home & Kitchen category recorded lowest product sales.
-
-#### Products Sold by Region
-- Sales distribution remains balanced across regions.
-
----
-
-### ⭐ Customer Behavior Analysis
-
-#### Average Rating by Category
-- Ratings remain stable across product categories.
-- Books category recorded slightly higher average ratings.
-
-#### Average Rating by Region
-- Middle East recorded the highest average customer rating.
+- Loaded the dataset using Pandas
+- Converted `order_date` from object to datetime format
+- Verified data types of all columns
+- Checked and confirmed:
+  - No missing values
+  - No duplicate records
+- Validated discounted price calculations using the discount percentage
 
 ---
 
-### 💰 Pricing & Discount Insights
+## ⚙️ Feature Engineering
+New features were created to support deeper analysis:
 
-#### Discount Segmentation
-Discounts categorized into:
-- Low (0–10%)
-- Medium (10–20%)
-- High (20–30%)
+- **Time-based features**
+  - `year`
+  - `month`
+  - `month_name`
+  - `week` (day of week)
+- **Discount Buckets**
+  - Low, Medium, High (based on discount percentage)
+- **Price Segments**
+  - Low, Affordable, High, Premium (quartile-based)
+- **Review Groups**
+  - Low, Average, High (rating-based quantiles)
 
-#### Price Segmentation
-Products grouped into:
-- Low
-- Affordable
-- High
-- Premium
-
-#### Review Segmentation
-Customer ratings categorized into:
-- Low
-- Average
-- High
+These features enabled better segmentation of revenue and customer behavior.
 
 ---
 
-### Correlation Analysis
+## 📊 Exploratory Data Analysis (EDA)
 
-Generated correlation heatmap to analyze relationships between:
+### 🔹 Product & Category Analysis
+- Average revenue by product category
+- Total revenue contribution by category (pie chart)
+- Total products sold by category
 
-- Price
-- Discount Percent
-- Quantity Sold
-- Rating
-- Review Count
-- Total Revenue
+### 🔹 Regional Analysis
+- Revenue distribution by customer region
+- Quantity of products sold by region
+- Average customer ratings by region
 
----
+### 🔹 Payment Method Analysis
+- Total and average revenue by payment method
+- Comparison of revenue contribution across payment types
 
-### Time Series Analysis
+### 🔹 Time-Based Analysis
+- Year-wise revenue comparison (2022 vs 2023)
+- Monthly revenue trends for each year
+- Order distribution across weekdays
 
-#### Yearly Revenue
-- Revenue remained stable across 2022 and 2023.
+### 🔹 Customer Feedback Analysis
+- Average rating by product category
+- Revenue contribution based on review groups
+- Relationship between ratings and revenue
 
-#### Monthly Sales Trends
-- Sales remained consistent across months.
-- Slight peak observed during early and mid-year months.
-
-#### Orders by Weekday
-- Orders are evenly distributed across weekdays.
-
----
-
-### Rating vs Revenue Analysis
-
-| Rating Group | Revenue Trend |
-|-------------|-------------|
-| Average | Highest revenue |
-| Low | Moderate revenue |
-| High | Slightly lower revenue |
-
----
-
-## 📈 Visualizations
-
-- Revenue distribution pie charts
-- Category sales comparison
-- Region-wise sales visualization
-- Payment method revenue bar chart
-- Correlation heatmap
-- Monthly and yearly revenue trends
+### 🔹 Correlation Analysis
+- Heatmap showing correlation between:
+  - Price
+  - Discount percentage
+  - Quantity sold
+  - Ratings
+  - Review count
+  - Total revenue
 
 ---
 
-## Key Business Insights
-
-- Product categories contribute evenly to total revenue.
-- Discount strategies show minimal variation in sales performance.
-- Customer ratings remain stable across products and regions.
-- Revenue trends show consistency across years.
-- Flexible payment methods help maintain steady sales.
-- Regional purchasing patterns remain balanced.
+## 📈 Key Insights
+- Revenue is evenly distributed across major product categories
+- Wallet and Credit Card payments generate the highest revenue
+- Middle East and North America show slightly higher average ratings
+- Year 2023 shows marginal revenue growth compared to 2022
+- Medium discount levels are most common across transactions
+- Products with average ratings contribute the highest total revenue
+- Quantity sold has a stronger impact on revenue than ratings
 
 ---
 
-📎 Project Structure
-├── amazon_sales_dataset.csv
-├── Amazon_Sales_EDA.ipynb
-├── README.md
+## 📂 Repository Contents
+- `amazon_sales_analysis.ipynb` – Jupyter Notebook with full analysis
+- `amazon_sales_dataset.csv` – Raw dataset
+- `visualizations/` – Generated plots and charts (if saved)
+- `README.md` – Project documentation
 
-Author
+---
 
-AB
-Aspiring Data Analyst
+## 👤 Author
+**AB**  
+Aspiring Data Analyst  
