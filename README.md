@@ -110,7 +110,7 @@ These features enabled better segmentation of revenue and customer behavior.
 ---
 
 ## 📂 Repository Contents
-- `amazon_sales_analysis.ipynb` – Jupyter Notebook with full analysis
+- `eda-amazon_sales.ipynb` – Jupyter Notebook with full analysis
 - `amazon_sales_dataset.csv` – Raw dataset
 - `visualizations/` – Generated plots and charts (if saved)
 - `README.md` – Project documentation
